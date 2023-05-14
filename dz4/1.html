@@ -26,7 +26,7 @@ $experience = [
     [
         'profession' => 'Программист',
         'begin' => 'январь 2023',
-        'end' => 'Current',
+        'end' => 'Настоящее время',
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     ],
         [
@@ -130,21 +130,29 @@ $experience = [
       <!-- Right Column -->
       <div class="w3-twothird">
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Опыт работы</h2>
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal">
+          </i>Опыт работы</h2>
+          <?php for ($i = 0; $i < count($experience); $i++):?>              
           <div class="w3-container">
-          <?php for ($i = 0; $i < count($experience); $i++):?>   
             <h5 class="w3-opacity"><b><?php echo $experience[$i]["profession"]?></b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>
-            <?php echo $experience[$i]['begin']; ?> - <?php echo $experience[$i]['end']; ?><span
-                class="w3-tag w3-teal w3-round">Current</span></h6>
-            <p><?php echo $experience[$i]['description']?></p>
-            <hr>
-          </div>
-          <div class="w3-container">
-            <?php endfor; ?>
-            <br>
-          </div>
+            <h6 class="w3-text-teal">
+                <i class="fa fa-calendar fa-fw w3-margin-right"></i>
+            <?php echo $experience[$i]['begin']; ?> - 
+            <?php if ($i == 0): ?>
+                <span class="w3-tag w3-teal w3-round">
+                    <?php echo $experience[$i]['end']; ?>
+                </span>
+                <?php else: ?>
+                    <?php echo $experience[$i]['end']; ?>
+            <?php endif; ?>
+                </h6>
+                <p><?php echo $experience[$i]['description']?></p>
+            <?php if ($i != 2): ?>
+                     <hr>
+            <?php else: ?>
+            <?php endif; ?>
+           </div>
+          <?php endfor; ?>
         </div>
         <div class="w3-container w3-card w3-white">
           <h2 class="w3-text-grey w3-padding-16"><i
